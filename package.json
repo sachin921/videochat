@@ -2,7 +2,7 @@
   "name": "livestream-server",
   "version": "0.0.1",
   "description": "A conference call implementation using WebRTC, Socket.io and Node.js.",
-  "main": "src/app.js",
+  "main": "app.js",
   "dependencies": {
     "express": "^4.17.1",
     "serve-favicon": "^2.5.0",
@@ -14,7 +14,7 @@
   "scripts": {
     "watch": "nodemon --watch \"src/\" --exec \"node src/app.js\"",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node src/app.js"
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
