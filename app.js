@@ -16,4 +16,5 @@ app.get('/', (req, res)=>{
 
 io.of('/stream').on('connection', stream);
 
+console.log("app Start");
 server.listen(3000);
