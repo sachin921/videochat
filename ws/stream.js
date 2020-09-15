@@ -1,3 +1,6 @@
+const errorLog = require('simple-node-logger').createSimpleLogger('project.log');
+
+
 const stream = (socket)=>{
     socket.on('subscribe', (data)=>{
         //subscribe/join a room
@@ -9,9 +12,11 @@ const stream = (socket)=>{
             socket.to(data.room).emit('new user', {socketId:data.socketId});
         }
 
-        console.log(socket.rooms);
+        errorLog.info(socket.rooms);
+        errorLog.info(JSON.stringify(socket.handshake));
+        
     });
-
+    
 
     socket.on('newUserStart', (data)=>{
         socket.to(data.to).emit('newUserStart', {sender:data.sender});
