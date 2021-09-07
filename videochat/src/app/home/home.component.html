@@ -1,0 +1,251 @@
+<video autoplay id="bgvid" loop>
+  <source src="../assets/BG_Blur_Final_v03_new.mp4" type="video/mp4">
+</video>
+
+<div class="modal fade" id="login-modal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="loginmodal-container comingsoon">
+      <h1>This feature is<span>coming soon</span></h1>
+	  <button type="button" class="close" data-dismiss="modal"><img src="../assets/images/close_bt.png" alt="Close"></button>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="login-modal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="loginmodal-container comingsoon">
+      <h1>This feature is<span>coming soon</span></h1>
+	  <button type="button" class="close" data-dismiss="modal"><img src="../assets/images/close_bt.png" alt="Close"></button>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="login-modal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="loginmodal-container comingsoon">
+      <h1>This feature is<span>coming soon</span></h1>
+	  <button type="button" class="close" data-dismiss="modal"><img src="../assets/images/close_bt.png" alt="Close"></button>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="login-modal4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="loginmodal-container comingsoon">
+      <h1>This feature is<span>coming soon</span></h1>
+	    <button type="button" class="close" data-dismiss="modal"><img src="../assets/images/close_bt.png" alt="Close"></button>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="login-modal5" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="loginmodal-container comingsoon">
+      <h1>This feature is<span>coming soon</span></h1>
+	  <button type="button" class="close" data-dismiss="modal"><img src="../assets/images/close_bt.png" alt="Close"></button>
+    </div>
+  </div>
+</div> 
+<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="loginmodal-container">
+      <h1>Login to Skyposium</h1>
+      <button type="button" class="close" data-dismiss="modal"><img src="../assets/images/close_bt.png" alt="Close"></button>
+      <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+        <input type="text" name="user" placeholder="Username" formControlName="login_email" [ngClass]="{ 'is-invalid': submittedlogin && l.login_email.errors }">
+        <div *ngIf="submittedlogin && l.login_email.errors" class="invalid-feedback">
+          <div *ngIf="l.login_email.errors.required" class="text-danger">Email is required</div>
+          <div *ngIf="l.login_email.errors.email" class="text-danger">Email must be a valid email address</div>
+        </div>
+        <input type="password" name="pass" formControlName="login_password" [ngClass]="{ 'is-invalid': submittedlogin && l.login_password.errors }" placeholder="Password">
+        <div *ngIf="submittedlogin && l.login_password.errors" class="invalid-feedback">
+          <div *ngIf="l.login_password.errors.required" class="text-danger">password is required</div>
+        </div>
+        <input type="submit" name="login" class="login loginmodal-submit" value="Login">
+      </form>
+      <div class="login-help"> <a href="#">Forgot Password</a> </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="register-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" *ngIf="registertaionPopup==true">
+  <div class="modal-dialog">
+    
+    <div class="loginmodal-container">
+      <h1>Register to Skyposium</h1>
+      <button type="button" class="close" data-dismiss="modal"><img src="../assets/images/close_bt.png" alt="Close"></button>
+      <div class="successmsg" *ngIf="successMsg">Reigsteration Successully Done!!</div>
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <input type="text" name="name" formControlName="name" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.name.errors }" placeholder="Name">
+        <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+          <div *ngIf="f.name.errors.required" class="text-danger">Name is required</div>
+        </div>
+
+        <input type="email" name="email" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }"  placeholder="Email">
+        
+        <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+          <div *ngIf="f.email.errors.required" class="text-danger">Email is required</div>
+          <div *ngIf="f.email.errors.email" class="text-danger">Email must be a valid email address</div>
+        </div>
+
+        <input type="text" name="phone" formControlName="phone" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.phone.errors }" placeholder="Phone">
+        <div *ngIf="submitted && f.phone.errors" class="invalid-feedback">
+          <div *ngIf="f.phone.errors.required" class="text-danger">Phone is required</div>
+          <div *ngIf="f.phone.errors.pattern" class="text-danger">Please Enter Valid Phone Number</div>
+        </div>
+
+        <input type="password" name="pass" formControlName="pass" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.pass.errors }" placeholder="Password">
+        <div *ngIf="submitted && f.pass.errors" class="invalid-feedback">
+          <div *ngIf="f.pass.errors.required" class="text-danger">Password is required</div>
+          <div *ngIf="f.pass.errors.minlength" class="text-danger">Password must be at least 6 characters</div>
+        </div>
+
+        <input type="password" name="c_pass" formControlName="c_pass" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.c_pass.errors }" placeholder="Confirm Password">
+        
+        <div *ngIf="submitted && f.c_pass.errors" class="invalid-feedback">
+          <div *ngIf="f.c_pass.errors.required" class="text-danger">Confirm Password is required</div>
+          <div *ngIf="f.c_pass.errors.confirmPasswordValidator" class="text-danger">Passsword and Confirm Password didn't match.</div>
+          <!-- <div *ngif="f.c_pass.errors.confirmPasswordValidator" class="text-danger">Passsword and Confirm Password didn't match.</div> -->
+        </div>
+
+        <button class="btn btn-primary mr-1">Register</button>
+      </form> 
+    </div>
+  </div> 
+</div>
+<!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> 
+		  <span class="sr-only">Toggle navigation</span> 
+		  <span class="icon-bar"></span> 
+		  <span class="icon-bar"></span> 
+		  <span class="icon-bar"></span> 
+	  </button>
+      <a class="navbar-brand" href="#"><img src="../assets/images/logo.png" alt="Logo"></a> </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li> <a href="#" data-toggle="modal" data-target="#login-modal2">Communication</a> </li>
+        <li> <a href="#" data-toggle="modal" data-target="#login-modal3">Cloud Management</a> </li>
+        <li> <a href="#" data-toggle="modal" data-target="#login-modal4">File Management</a> </li>
+        <li> <a href="#" data-toggle="modal" data-target="#login-modal5">Document Syncronize</a> </li>
+        <li> <a href="#" data-toggle="modal" data-target="#login-modal">Login</a> </li>
+        <li> <a href="#" data-toggle="modal" data-target="#register-modal">Register</a> </li>
+      </ul>
+    </div>
+    
+  </div> 
+</nav>
+<header class="business-header">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <h1 class="tagline">Join the next level of<br>communication</h1>
+        <p>Available for iOS, Android, Mac, Linux, and Windows</p>
+        <div class="window"><a href="#">Download for window</a></div>
+        <div class="linux"><a href="#">Download for linux</a></div>
+        <div class="ios"><a href="#">Download for ios</a></div>
+        <div class="android"><a href="#">Download for android</a></div>
+      </div>
+    </div>
+  </div>
+</header>
+<!-- section start -->
+<div class="content-section-e">
+  <div class="container">
+    <div class="row">
+      <h2><img src="../assets/images/line.png" alt=""> About Skyposium <img src="../assets/images/line.png" alt=""></h2>
+      <p>Using the power of ARTIFICIAL INTELLIGENCE, Skyposium offers a new and inovative communication tool:</p>
+	  <h5>SKYPOSIUM COMMUNICATION SUITE (SCS)</h5>
+      <ul>
+        <li class="video_chat"><a href="#">Video Chat</a></li>
+        <li class="call_chat"><a href="#">Call</a></li>
+        <li class="text_chat"><a href="#">Text Chat</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<!-- section start -->
+<div class="content-section-a">
+  <div class="container">
+    <div class="row">
+      <h2 style="margin-bottom:30px;"><img src="../assets/images/line.png" alt=""> Why Use SCS <img src="../assets/images/line.png" alt=""></h2>
+   	<div class="why_us">
+		<div class="contaent">
+			More call stability and video qualty thanks to our revolutionary data transfer technology WORMHOLE
+			<a data-target="#register-modal" data-toggle="modal" href="#">Register</a>
+		</div>
+	</div>	
+	<div class="why_us" style="float:right;">
+		<div class="contaent">
+			No programme or plug-in installation needed! SCS runs with all major browsers
+			<a data-target="#register-modal" data-toggle="modal" href="#">Register</a>
+		</div>
+	</div>
+		
+		<div class="why_us">	
+		<div class="contaent">
+			Conduct video-calls with up to 15 participants FOR FREE!
+			<a data-target="#register-modal" data-toggle="modal" href="#">Register</a>
+		</div>
+		</div>
+	<div class="why_us" style="float:right;">
+		<div class="contaent">
+			Present to any size audience with our One-2-Many feature.
+			<a data-target="#register-modal" data-toggle="modal" href="#">Register</a>
+		</div>
+	</div>
+
+    </div>
+  </div>
+</div>
+<div class="content-section-d">
+  <div class="container">
+    <div class="row">
+      <h2>Data Information</h2>
+      <div class="cloud_management2">
+        <img src="../assets/images/data-information_1.png" alt=""> <img src="../assets/images/data-information_2.png" alt=""> <img src="../assets/images/data-information_3.png" alt=""> <img src="../assets/images/data-information_4.png" alt="">
+      </div>
+    </div>
+  </div>
+</div>
+<!-- section start -->
+
+<div class="content-section-d">
+  <div class="container">
+    <div class="row">
+      <h2>Get in Touch</h2>
+      <div class="cloud_management2 contact">
+		<div class="contact_form">
+		<form name="enquiryForm" id="enquiryForm" method="post">
+			<div class="contact_left">
+				<input type="text" id="name" value="" required name="name" placeholder="Name" />
+				<input type="email" id="email" name="email" required value="" placeholder="Email" />
+				<input type="tel" id="phone" value="" required name="phone" placeholder="Phone" />
+			</div>
+			
+			<div class="contact_right">
+				<textarea name="message" placeholder="Message"></textarea>				
+				<input type="submit" name="fromsubmit" id="formsumit" value="">
+				
+			</div>
+			<span id="success" style="color:green; font-weight:700px; font-size:18px;"></span>
+			</form>
+		</div>
+	   </div>
+    </div>
+  </div>
+</div>
+<!-- section end -->
+<!-- Footer -->
+<footer id="footer">
+  <div class="container">
+    <div class="row">
+      <div class="get_started">
+        <h2><img src="../assets/images/line.png" alt=""> Get Started Today. <img src="../assets/images/line.png" alt=""></h2>
+        <p>Available for iOS, Android, Mac, Linux, and Windows</p>
+        <a href="#"><img src="../assets/images/bottom_icon.png" alt=""></a> <a href="#"><img src="../assets/images/bottom_icon2.png" alt=""></a> <a href="#"><img src="../assets/images/bottom_icon3.png" alt=""></a> <a href="#"><img src="../assets/images/bottom_icon4.png" alt=""></a> <a href="#"><img src="../assets/images/bottom_icon5.png" alt=""></a> </div>
+    </div>
+  </div>
+  <!-- /.row -->
+</footer>
